@@ -1,2 +1,2 @@
-import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{f as o}from"./assets/vendor-EyZmBGcZ.js";let e=null;const r={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,onClose(t){e=t[0],console.log(e)}};o("#datetime-picker",r);
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";/* empty css                      */import{f as o}from"./assets/vendor-EyZmBGcZ.js";const t=document.querySelector("[data-start]");let e=null;t.disabled=!0;const l={enableTime:!0,time_24hr:!0,defaultDate:new Date,minuteIncrement:1,onClose(a){e=a[0],console.log(e),n()}};o("#datetime-picker",l);function n(){e<Date.now()&&window.alert("Please choose a date in the future"),t.disabled=!1}console.dir(t);
 //# sourceMappingURL=1-timer.js.map
