@@ -1,0 +1,15 @@
+.main-timer {
+
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    font-size: 35px;
+}
