@@ -1,7 +1,10 @@
-// Описаний в документації
 import flatpickr from 'flatpickr';
-// Додатковий імпорт стилів
+
 import 'flatpickr/dist/flatpickr.min.css';
+
+import iziToast from 'izitoast';
+
+import 'izitoast/dist/css/iziToast.min.css';
 
 const btnEl = document.querySelector('[data-start]');
 const dayEl = document.querySelector('[data-days]');
@@ -31,7 +34,11 @@ flatpickr(dateTimePicker, options);
 
 function validateDate() {
   if (userSelectedDate < Date.now()) {
-    window.alert('Please choose a date in the future');
+    return iziToast.error({
+      position: 'topRight',
+
+      message: 'Please choose a date in the future',
+    });
   }
   btnEl.disabled = false;
 }
