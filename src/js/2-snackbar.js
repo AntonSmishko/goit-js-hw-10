@@ -17,7 +17,7 @@ let delay = 0;
 function inputHandler(evt) {
   delay = Number(formInputEl.value);
 }
-let isSuccess = true;
+let isSuccess = 'fulfilled';
 
 function radioHandler(evt) {
   isSuccess = evt.target.value;
@@ -25,27 +25,29 @@ function radioHandler(evt) {
 
 function submitHandler(evt) {
   evt.preventDefault();
+  const currentDelay = delay;
+  const currentStatus = isSuccess;
   const newPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (isSuccess === 'fulfilled') {
-        resolve('Success! Value passed to resolve function');
+      if (currentStatus === 'fulfilled') {
+        resolve(currentDelay);
       } else {
-        reject('Error! Error passed to reject function');
+        reject(currentDelay);
       }
-    }, delay);
+    }, currentDelay);
   });
-
+  formInputEl.value = '';
   newPromise
     .then(value => {
       iziToast.success({
         position: 'topRight',
-        message: `✅ Fulfilled promise in ${delay}ms`,
+        message: `✅ Fulfilled promise in ${value}ms`,
       });
     })
     .catch(value => {
       iziToast.error({
         position: 'topRight',
-        message: `❌ Rejected promise in ${delay}ms`,
+        message: `❌ Rejected promise in ${value}ms`,
       });
     });
 }
