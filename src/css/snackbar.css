@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    align-items: center;
+}
+
+button {
+    width: 175px;
+    height: 45px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: aquamarine;
+    justify-content: center;
+}
