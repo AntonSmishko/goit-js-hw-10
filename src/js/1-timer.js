@@ -3,7 +3,9 @@ import flatpickr from 'flatpickr';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
+const btnEl = document.querySelector('[data-start]');
 let userSelectedDate = null;
+btnEl.disabled = true;
 
 const options = {
   enableTime: true,
@@ -13,7 +15,17 @@ const options = {
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
     console.log(userSelectedDate);
+    validateDate();
   },
 };
 
 flatpickr('#datetime-picker', options);
+
+function validateDate() {
+  if (userSelectedDate < Date.now()) {
+    window.alert('Please choose a date in the future');
+  }
+  btnEl.disabled = false;
+}
+
+console.dir(btnEl);
